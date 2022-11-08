@@ -20,10 +20,18 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount;
   "use strict";
 
+  if (!isNaN(percent) && !isNaN(contribution) && !isNaN(amount) && !isNaN(date)) {
+    alert('Ввели неверно числовые значения');
+  }
+
   let bodyMortgage = amount - contribution;
 
-  let payment = bodyMortgage * (P + (P / (((1 + P) ** n) - 1)));
-  totalAmount
+  let currentMonth = new Date().getMonth();
+  let currentYear = new Date().getFullYear();
+  let diffYear = date.getFullYear() - currentYear;
+  let countMonth = (diffYear * 12) - currentMonth + date;
 
-  return totalAmount;
+  let payment = bodyMortgage * ((percent / 100) + (percent / 100) / (((1 + percent / 100)) ** countMonth) - 1);
+  
+  return (totalAmount = Number(payment.toFixed(2)));
 }
