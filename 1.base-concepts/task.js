@@ -20,8 +20,14 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount;
   "use strict";
 
-  if (!isNaN(percent) && !isNaN(contribution) && !isNaN(amount) && !isNaN(date)) {
-    alert('Ввели неверно числовые значения');
+  if (isNaN(percent) === true) {
+    return `Параметр "Процент" содержит неправильное значение "${percent}"`
+  } else if (isNaN(contribution) === true) {
+    return `Параметр "Первоначальный взнос" содержит неправильное значение "${contribution}"`
+  } else if (isNaN(amount) === true) {
+    return `Параметр "Сумма кредита" содержит неправильное значение "${amount}"`
+  } else if (isNaN(date) === true) { 
+    return `Параметр "Дата" содержит неправильное значение "${date}"`
   }
 
   let bodyMortgage = amount - contribution;
