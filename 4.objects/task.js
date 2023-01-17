@@ -1,33 +1,37 @@
 function Student(name, gender, age) {
-  this.setSubject();
-  this.addMark();
+  this.name = name;
+  this.gender = gender;
+  this.age = age;
 }
 
 Student.prototype.setSubject = function (subjectName) {
-  return subject = subjectName;
+  this.setSubject = subjectName;
 }
 
 Student.prototype.addMark = function (mark) {
-  const marks = [];
+  this.marks = mark;
   if(this.marks === undefined){ 
-    marks.push(mark);
+    marks = [mark];
     } else {
       marks.push(mark);
     }
 }
 
 Student.prototype.addMarks = function (...args) {
-  //ваш код
+  this.marks = [...args];
 }
 
 Student.prototype.getAverage = function () {
-  // const averSum =
+  for (let element in this.marks) {
+    sum = element++;
+    return sum / this.marks.length;
+  }
 }
 
 Student.prototype.exclude = function (reason) {
-  delete Student.subject;
-  delete Student.marks;
-  return this.exclude = excluded(reason);
+  delete this.subject;
+  delete this.marks;
+  this.excluded = reason;
 }
 
 let student1 = new Student("Tony", "male", 37);
