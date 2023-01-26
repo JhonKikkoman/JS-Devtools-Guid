@@ -5,36 +5,37 @@ class PrintEditionItem {
         this.pagesCount = pagesCount;
         this.state = 100;
         this.type = null;
+        
     }
     fix() {
       return  this.state = (this.state * 1.5);
-    }
-
-    editItem = {
-        set state(newNum) {
-            if (newNum < 0) {
-                this._state = 0;
-            } else if (newNum > 100) {
-                this._state = 100;
-            } else return this._state = newNum;
-        },
-        get state() {
-            return this._state;
-        }
     }
 }
 
 let Gorkiy = new PrintEditionItem('Gorkiy', '2312', '123');
 
+ let editItem = {
+    set state(newNum) {
+        if (newNum < 0) {
+            this._state = 0;
+        } else if (newNum > 100) {
+            this._state = 100;
+        } else return this._state = newNum;
+    },
+    get state() {
+        return this._state;
+    }
+}
+
 class Magazine extends PrintEditionItem {
-    constructor() {
+    constructor(name, releaseDate, pagesCount) {
         super(name, releaseDate, pagesCount)
         this.type = "magazine";
     }
 }
 
 class Book extends PrintEditionItem {
-    constructor(author) {
+    constructor(author, name, releaseDate, pagesCount) {
         super(name, releaseDate, pagesCount)
         this.author = author;
         this.type = "book";
