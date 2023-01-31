@@ -3,7 +3,7 @@ class PrintEditionItem {
         this.name = name;
         this.releaseDate = releaseDate;
         this.pagesCount = pagesCount;
-        this.state = 100;
+        this.state = editItem;
         this.type = null;
         
     }
@@ -14,7 +14,7 @@ class PrintEditionItem {
 
 let Gorkiy = new PrintEditionItem('Gorkiy', '2312', '123');
 
- let editItem = {
+let editItem = {
     set state(newNum) {
         if (newNum < 0) {
             this._state = 0;
