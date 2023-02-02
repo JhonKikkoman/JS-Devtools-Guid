@@ -3,29 +3,27 @@ class PrintEditionItem {
         this.name = name;
         this.releaseDate = releaseDate;
         this.pagesCount = pagesCount;
-        this.state = editItem;
+        this.state = state;
         this.type = null;
         
     }
     fix() {
       return  this.state = (this.state * 1.5);
     }
-}
-
-let Gorkiy = new PrintEditionItem('Gorkiy', '2312', '123');
-
-let editItem = {
-    set state(newNum) {
+    set editItem(newNum) {
         if (newNum < 0) {
             this._state = 0;
         } else if (newNum > 100) {
             this._state = 100;
         } else return this._state = newNum;
-    },
-    get state() {
+    }
+    get editItem() {
         return this._state;
+        
     }
 }
+
+let Gorkiy = new PrintEditionItem('Gorkiy', '2312', '123');
 
 class Magazine extends PrintEditionItem {
     constructor(name, releaseDate, pagesCount) {
