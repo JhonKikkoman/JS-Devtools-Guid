@@ -10,7 +10,7 @@ function validateCount(argY) {
     try {
         return parseCount(argY);  
     } catch (error) {
-        throw error;
+        return error;
     }
 
 }
@@ -21,18 +21,16 @@ class Triangle {
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
-        this.perimeter = perimeter;
-        this.area = area;
         if ((sideA + sideB) < sideC || (sideB + sideC) < sideA || (sideA + sideC) < sideB) {
             throw new Error ("Треугольник с такими сторонами не существует");
         } 
     }
     getPerimeter() {
-        return this.perimeter = sideA + sideB + sideC;
+        return (this.sideA + this.sideB + this.sideC);
     }
     getArea() {
-        this.area = (sideA + sideB + sideC) / 2;
-        return this.area * ((this.area - this.sideA) * (this.area - this.sideB) * (this.area - this.sideC));
+        const area = (this.sideA + this.sideB + this.sideC) / 2;
+        return Number(Math.sqrt(area * ((area - this.sideA) * (area - this.sideB) * (area - this.sideC))).toFixed(3));
     }
 }
 
@@ -40,8 +38,7 @@ function getTriangle(sideA, sideB, sideC) {
     try {
         return new Triangle(sideA, sideB, sideC);
     } catch (error) {
-        throw this.getArea = ("Ошибка! Треугольник не существует"),
-              this.getPerimeter = ("Ошибка! Треугольник не существует");
+        return {getArea() {"Ошибка! Треугольник не существует"}, getPerimeter() {"Ошибка! Треугольник не существует"}};
     }
     
 }
