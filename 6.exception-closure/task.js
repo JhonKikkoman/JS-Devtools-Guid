@@ -14,7 +14,6 @@ function validateCount(argY) {
     }
 
 }
-console.log(parseCount('wads'));
 
 class Triangle {
     constructor (sideA, sideB, sideC) {
@@ -38,7 +37,8 @@ function getTriangle(sideA, sideB, sideC) {
     try {
         return new Triangle(sideA, sideB, sideC);
     } catch (error) {
-        return {getArea() {"Ошибка! Треугольник не существует"}, getPerimeter() {"Ошибка! Треугольник не существует"}};
+        return {getArea() {return "Ошибка! Треугольник не существует"}, 
+                getPerimeter() {return "Ошибка! Треугольник не существует"}};
     }
     
 }
