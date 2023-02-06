@@ -4,8 +4,8 @@ function cachingDecoratorNew(func) {
     const hash = args.join(",");
     const objectInCache = cache.find((item) => item.hash === hash);
     if (!objectInCache) {
-      console.log("Из кэша: " + objectInCache.hash);
-      return "Из кэша: " + objectInCache.hash;
+      console.log("Из кэша: " + result);
+      return "Из кэша: " + result;
     }
 
     let result = func(...args);
