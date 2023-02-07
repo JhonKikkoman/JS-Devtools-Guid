@@ -41,22 +41,22 @@ class Book extends PrintEditionItem {
 }
 
 class NovelBook extends Book {
-    constructor() {
-        super();
+    constructor(author, name, releaseDate, pagesCount) {
+        super(author, name, releaseDate, pagesCount);
         this.type = "novel";
     }
 }
 
 class FantasticBook extends Book {
-    constructor() {
-        super();
+    constructor(author, name, releaseDate, pagesCount) {
+        super(author, name, releaseDate, pagesCount);
         this.type = "fantastic";
     }
 }
 
 class DetectiveBook extends Book {
-    constructor() {
-        super();
+    constructor(author, name, releaseDate, pagesCount) {
+        super(author, name, releaseDate, pagesCount);
         this.type = "detective";
     }
 }
@@ -72,21 +72,15 @@ class Library {
         } return;
     }
     findBookBy(type, value) {
-        for (let i = 0; i < this.books.length; i++) {
-            if (type === this.books[i] && value === this.books[i]) {
-                return this.name;
-            }
-        }
-        return null;
+        const findResult = this.books.find((item) => item[type] === value);
+        return findResult || null;
     }
     giveBookByName(bookName) {
-        if(bookName === true) {
-            this.books.splice(bookName);
-        } else return null;
+        const giveBook = this.books.find((elem) => {
+            if (elem[bookName]) {
+                this.books.splice(bookName, 1, 1);
+            }
+        })
+        return giveBook || null;
     }
-
-}
-
-if(type === true && value === true) {
-    return this.name;
 }
