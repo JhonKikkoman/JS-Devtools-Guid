@@ -76,11 +76,13 @@ class Library {
         return findResult || null;
     }
     giveBookByName(bookName) {
-        const giveBook = this.books.find((elem) => {
-            if (elem[bookName]) {
-                this.books.splice(bookName, 1, 1);
-            }
-        })
+        for (let i = 0; i < this.books.length; i++) {
+            const giveBook = this.books.indexOf(this.books[i].name);
+            return giveBook;
+        }
+        if (giveBook === bookName) {
+            this.books.splice(0, giveBook);
+        }
         return giveBook || null;
     }
 }
