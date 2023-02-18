@@ -54,20 +54,22 @@ class AlarmClock {
 
 } 
 
-clock1 = new AlarmClock();
-const currentTime = clock1.getCurrentFormattedTime();
-const func = () => console.log("текст");
-function addTimer() {
-    time.setMinutes(time.getMinutes() + 1);
-    return time.toLocaleTimeString().slice(0, 5);
+function testCase() {
+    clock1 = new AlarmClock;
+    const currentTime = clock1.getCurrentFormattedTime();
+    const func = () => console.log("текст");
+    function addTimer() {
+        time.setMinutes(time.getMinutes() + 1);
+        return time.toLocaleTimeString().slice(0, 5);
+    }
+    clock1.addClock(currentTime, func, 2);
+
+    clock1.addClock(addTimer, func, 3);
+    clock1.removeClock(3);
+
+
+    clock1.addClock("22:03", func, 4);
+    clock1.stop();
+    clock1.clearAlarms();
+    clock1.printAlarms();
 }
-clock1.addClock(currentTime, func, 2);
-
-clock1.addClock(addTimer, func, 3);
-clock1.removeClock(3);
-
-
-clock1.addClock("22:03", func, 4);
-clock1.stop();
-clock1.clearAlarms();
-clock1.printAlarms();
