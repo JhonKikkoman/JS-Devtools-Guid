@@ -7,7 +7,7 @@ class AlarmClock {
         if (id === undefined) {
             throw new Error('error text');
         } 
-        if ((this.alarmCollection.some((elem) => elem === id))) { 
+        if ((this.alarmCollection.some((elem) => elem.id === id))) { 
             console.error("Ошибка");
             return
         }
@@ -16,8 +16,8 @@ class AlarmClock {
     }
     removeClock(id) {
         const arrLen = this.alarmCollection.length;
-        this.alarmCollection = this.alarmCollection.filter(elem => elem.alarmCollection === id);
-        return arrLen === this.alarmCollection.length;
+        this.alarmCollection = this.alarmCollection.filter(elem => elem.id === id);
+        return arrLen !== this.alarmCollection.length;
     }
     getCurrentFormattedTime() {
         const time = new Date();
@@ -58,13 +58,13 @@ function testCase() {
     clock1 = new AlarmClock;
     const currentTime = clock1.getCurrentFormattedTime();
     const func = () => console.log("текст");
-    function addTimer() {
-        time.setMinutes(time.getMinutes() + 1);
-        return time.toLocaleTimeString().slice(0, 5);
-    }
+    // function addTimer() {
+    //     time.setMinutes(time.getMinutes() + 1);
+    //     return time.toLocaleTimeString().slice(0, 5);
+    // }
     clock1.addClock(currentTime, func, 2);
 
-    clock1.addClock(addTimer, func, 3);
+    clock1.addClock("22:01", func, 3);
     clock1.removeClock(3);
 
 
